@@ -154,8 +154,10 @@ class _HappySliderState extends State<HappySlider>
     final maxDragDistance = widget.width - widget.sliderWidth - (4 * spacing);
 
     setState(() {
-      _dragPosition = (_dragPosition + details.delta.dx)
-          .clamp(0.0, maxDragDistance);
+      _dragPosition = (_dragPosition + details.delta.dx).clamp(
+        0.0,
+        maxDragDistance,
+      );
     });
   }
 
@@ -181,13 +183,9 @@ class _HappySliderState extends State<HappySlider>
 
   /// Animates the button back to its original position
   void _resetToOriginalPosition() {
-    _animation = Tween<double>(
-      begin: _dragPosition,
-      end: 0.0,
-    ).animate(CurvedAnimation(
-      parent: _animationController,
-      curve: Curves.easeOut,
-    ));
+    _animation = Tween<double>(begin: _dragPosition, end: 0.0).animate(
+      CurvedAnimation(parent: _animationController, curve: Curves.easeOut),
+    );
 
     _animationController.reset();
     _animationController.forward();
@@ -226,7 +224,8 @@ class _HappySliderState extends State<HappySlider>
       children.add(
         Text(
           widget.buttonText!,
-          style: widget.buttonTextStyle ??
+          style:
+              widget.buttonTextStyle ??
               TextStyle(
                 color: widget.defaultIconColor,
                 fontSize: 16,
@@ -276,7 +275,8 @@ class _HappySliderState extends State<HappySlider>
             child: Center(
               child: Text(
                 widget.text,
-                style: widget.textStyle ??
+                style:
+                    widget.textStyle ??
                     TextStyle(
                       color: Colors.grey[600],
                       fontSize: 16,
@@ -298,12 +298,14 @@ class _HappySliderState extends State<HappySlider>
                 width: widget.sliderWidth,
                 height: widget.height - (4 * widget.borderWidth),
                 decoration: BoxDecoration(
-                  color: widget.buttonColor,
+                  color: _isDragging ? Colors.blue : widget.buttonColor,
+                  // Change color when dragging
                   borderRadius: BorderRadius.circular(widget.borderRadius - 2),
                   boxShadow: [
                     BoxShadow(
-                      color: Colors.black.withOpacity(0.2),
-                      blurRadius: 4,
+                      color: Colors.black.withAlpha(50),
+                      blurRadius: _isDragging ? 8 : 4,
+                      // Increase blur when dragging
                       offset: const Offset(0, 2),
                     ),
                   ],

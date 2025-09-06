@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:happy_slider/happy_slider.dart';
 
@@ -14,60 +15,22 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // TRY THIS: Try running your application with "flutter run". You'll see
-        // the application has a purple toolbar. Then, without quitting the app,
-        // try changing the seedColor in the colorScheme below to Colors.green
-        // and then invoke "hot reload" (save your changes or press the "hot
-        // reload" button in a Flutter-supported IDE, or press "r" if you used
-        // the command line to start the app).
-        //
-        // Notice that the counter didn't reset back to zero; the application
-        // state is not lost during the reload. To reset the state, use hot
-        // restart instead.
-        //
-        // This works for code too, not just values: Most code changes can be
-        // tested with just a hot reload.
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const MyHomePage(),
     );
   }
 }
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
+  const MyHomePage({super.key, });
 
-  // This widget is the home page of your application. It is stateful, meaning
-  // that it has a State object (defined below) that contains fields that affect
-  // how it looks.
-
-  // This class is the configuration for the state. It holds the values (in this
-  // case the title) provided by the parent (in this case the App widget) and
-  // used by the build method of the State. Fields in a Widget subclass are
-  // always marked "final".
-
-  final String title;
 
   @override
   State<MyHomePage> createState() => _MyHomePageState();
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-      _counter++;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -85,7 +48,9 @@ class _MyHomePageState extends State<MyHomePage> {
               text: "Slide to confirm",
               buttonText: "Confirm",
               onSlideComplete: () {
-                print("Slider completed!");
+                if (kDebugMode) {
+                  print("Slider completed!");
+                }
               },
             ),
 
@@ -100,7 +65,9 @@ class _MyHomePageState extends State<MyHomePage> {
               buttonColor: Colors.green,
               borderColor: Colors.green,
               onSlideComplete: () {
-                print("Unlocked!");
+                if (kDebugMode) {
+                  print("Unlocked!");
+                }
               },
             ),
 
@@ -114,7 +81,9 @@ class _MyHomePageState extends State<MyHomePage> {
               buttonColor: Colors.blue,
               showDefaultIcon: false, // Don't show default icon
               onSlideComplete: () {
-                print("Payment initiated!");
+                if (kDebugMode) {
+                  print("Payment initiated!");
+                }
               },
             ),
 
@@ -147,7 +116,9 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               ),
               onSlideComplete: () {
-                print("Custom slider completed!");
+                if (kDebugMode) {
+                  print("Custom slider completed!");
+                }
               },
             ),
 
@@ -166,7 +137,9 @@ class _MyHomePageState extends State<MyHomePage> {
                 color: Colors.white,
               ),
               onSlideComplete: () {
-                print("Text only slider!");
+                if (kDebugMode) {
+                  print("Text only slider!");
+                }
               },
             ),
 
@@ -180,7 +153,7 @@ class _MyHomePageState extends State<MyHomePage> {
               buttonIcon: Icon(Icons.warning, color: Colors.white, size: 20),
               buttonColor: Colors.red,
               borderColor: Colors.red,
-              backgroundColor: Colors.red.withOpacity(0.1),
+              backgroundColor: Colors.red.withAlpha(25),
               borderWidth: 3,
               borderRadius: 32,
               buttonTextStyle: TextStyle(
@@ -193,7 +166,9 @@ class _MyHomePageState extends State<MyHomePage> {
                 fontWeight: FontWeight.w600,
               ),
               onSlideComplete: () {
-                print("Emergency activated!");
+                if (kDebugMode) {
+                  print("Emergency activated!");
+                }
               },
             ),
           ],
