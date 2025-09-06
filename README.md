@@ -139,7 +139,7 @@ class MyApp extends StatelessWidget {
 
 ## Contributing
 
-Contributions are welcome! Please feel free to submit a pull request or open an issue on the [GitHub repository](https://github.com/your-repo/happy_slider).
+Contributions are welcome! Please feel free to submit a pull request or open an issue on the [GitHub repository](https://github.com/MD-Redwan-Ul-Abir/happy_slider).
 
 ## License
 
