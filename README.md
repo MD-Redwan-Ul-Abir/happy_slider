@@ -1,5 +1,3 @@
-<xaiArtifact artifact_id="c735a543-7574-473a-9a14-7e8e1e97abc5" artifact_version_id="d95f48f9-a3cf-46ef-a8cc-34c2093d9167" title="README.md" contentType="text/markdown">
-
 # HappySlider
 
 A customizable slide-to-confirm widget for Flutter that provides a smooth sliding interaction. Users can slide a button from left to right to confirm an action, with extensive customization options for colors, text, icons, and button content.
