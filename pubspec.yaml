@@ -1,6 +1,6 @@
 name: happy_slider
 description: "A customizable slide-to-confirm widget for Flutter that provides a smooth sliding interaction. Users can slide a button from left to right to confirm an action, with extensive customization options for colors, text, icons, and button content."
-version: 0.0.1
+version: 0.0.2
 homepage: https://github.com/MD-Redwan-Ul-Abir/happy_slider
 
 environment:
@@ -17,3 +17,5 @@ dev_dependencies:
   flutter_lints: ^5.0.0
 
 flutter:
+  assets:
+    - assets/demo.gif

@@ -2,6 +2,9 @@
 
 A customizable slide-to-confirm widget for Flutter that provides a smooth sliding interaction. Users can slide a button from left to right to confirm an action, with extensive customization options for colors, text, icons, and button content.
 
+<p align="center">
+  <img src="assets/demo.gif" alt="HappySlider Demo" >
+</p>
 ## Features
 
 - Smooth sliding animation with drag gestures
